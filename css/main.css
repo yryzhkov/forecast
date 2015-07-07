@@ -1,0 +1,75 @@
+body {
+    padding: 0;
+    margin: 0;
+    text-align:left;
+	font-family: Arial;
+	font-size:14px;
+	color:#000000;
+    background: url(../images/weather-bg2.jpg) repeat;
+}
+#main {
+    display: block;
+    width: 960px;
+    margin: auto;
+    background-color: #FFF;
+    -moz-box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.5); 
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+header {
+    height: 120px;
+    width: 960px;
+    text-align: center;
+    background:url(../images/header1.jpg) no-repeat center top;
+}
+.logo {
+    height: 90px;
+    width: 197px;
+    float: left;
+    margin: 15px;
+    background:transparent url(../images/logo-weather.png) no-repeat;
+}
+nav ul {
+    background-color: #f90;
+    position: absolute;
+    display: block;
+}
+nav li:hover ul {
+    display: block; 
+}
+nav, nav ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+nav {
+     height: 30px;
+     background-color: #666;
+     padding-left: 25px;
+     min-width: 470px;
+}
+nav li {
+    float: left;
+    position: relative;
+    height: 100%;
+ }
+nav li a {
+    display: block;
+    padding: 6px;
+    width: 100px;
+    color: #fff;
+    text-decoration: none;
+    text-align: center;
+}
+nav ul li { 
+    float: none; 
+}
+nav li:hover {
+    background-color: #f90; 
+}
+nav ul li:hover { 
+    background-color: #666; 
+}
+footer {
+    margin: 10px;
+}
