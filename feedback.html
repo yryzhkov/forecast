@@ -1,18 +1,26 @@
 <!doctype html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Feedback | Ваш прогноз погоди</title>
+   <head>
+      <meta charset="UTF-8">
+      <title>Ваш прогноз погоди</title>
+      <link href="/css/main.css" rel="stylesheet"/>
   </head>
   <body>
-    <header>
-         <img src="/images/header1.jpg" width=960px height=120>    
-    </header>  
-    <nav>
-      &gt;&nbsp;<a href="index.html">Головна</a>
-      &gt;&nbsp;<a href="prognosis.html">Прогноз погоди</a>  
-    </nav>
-    <br>  
+      <header>
+         <a href="/"><div id="logo"></div></a>  
+      </header>  
+      <nav>
+         <ul>
+            <li><a href="index.html">Головна</a></li>
+            <li><a href="prognosis.html">Прогноз погоди</a></li>
+            <li><a href="feedback.html">Зворотній зв'язок</a></li>    
+        </ul>    
+     </nav>
+     <div id="main">
+        <h1>
+            Повідомте будь-ласка ваші враження
+        </h1>  
+    <br> 
     <form id="feedbackForm">
        <fieldset>
          <p>
@@ -21,21 +29,21 @@
          </p> 
          <p> 
            <label for="email">E-mail:</label>  
-           <input type="email" name="email" placeholder="Ваш @" required><br>
+           <input type="email" name="email" placeholder="@" required><br>
          </p>
          <p>
-           <label for="details">Ваша думка:</label>
-           <input type="text" name="details" title="Напишіть Ваш відгук..." required>    
-         </p>
+           <label for="details">Відгук:</label>
+           <textarea name="details" maxlength="500" cols="30" rows="10" required></textarea></p>
          <p>   
            <input type="submit">
          </p>     
         </fieldset>
       </form> 
-    <br>  
-    <footer>
-      &copy;2015 by Yuriy Ryzhkov
-    </footer>
-  </body>
-  
-</html>  
+      <br>  
+         <hr> 
+        <footer>
+            <div id=copy><em>&copy;2015 by Yuriy Ryzhkov</em></div>
+        </footer>
+     </div>
+  </body>  
+</html>
