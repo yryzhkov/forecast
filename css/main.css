@@ -5,21 +5,21 @@ body {
 	font-family: Arial;
 	font-size:14px;
 	color:#000000;
-    background: url(/images/weather-bg2.jpg) repeat; /* брендування фону */
+    background: url(../images/weather-bg2.jpg) repeat; /* брендування фону */
 }
 header {
     height: 120px;
     width: 960px;
     padding: 0;
     margin: 0 auto;
-    background:url(/images/header1.jpg) no-repeat top;
+    background:url(../images/header1.jpg) no-repeat top;
 }
 #logo {
     height: 90px;
     width: 197px;
     float: left;
     margin: 15px;
-    background:transparent url(/images/logo-weather.png) no-repeat;
+    background:transparent url(../images/logo-weather.png) no-repeat;
 }
 nav {
      display: block;
