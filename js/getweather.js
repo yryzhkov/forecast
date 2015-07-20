@@ -46,7 +46,7 @@ $(function() {
 				});
 
 				// Add the location to the page
-				location.html('Визначене місцезнаходження: 'city+', <b>'+country+'</b>');
+				location.html('Визначене місцезнаходження: '+ city +', <b>'+ country +'</b>');
 			}
 
 			else{
