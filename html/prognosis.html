@@ -4,8 +4,8 @@
       <meta charset="UTF-8">
       <title>Ваш прогноз погоди</title>
       <link href="../css/main.css" rel="stylesheet"/>
-  </head>
-  <body>
+   </head>
+   <body>
       <header>
          <a href="../index.html"><div id="logo"></div></a>  
       </header>  
@@ -15,63 +15,31 @@
             <li><a href="prognosis.html">Прогноз погоди</a></li>
             <li><a href="feedback.html">Зворотній зв'язок</a></li>    
         </ul>    
-     </nav>
-     <div id="main">
+      </nav>
+      <div id="main">
         <h1>
             Прогноз погоди у вашому місті
         </h1>  
-    <br>  
-    <table align="center" width="700" cellpadding="5" cols="8" border="1">
-      <caption>Таблиця погоди</caption>
-        <tr>
-            <td></td>
-            <th>Понеділок<br /> 06 липня</th>
-            <th>Вівторок<br /> 07 липня</th>
-            <th>Середа<br /> 08 липня</th>
-            <th>Четвер<br /> 09 липня</th>
-            <th>П'ятниця<br /> 10 липня</th>
-            <th>Субота<br /> 11 липня</th>
-            <th>Неділя<br /> 12 липня</th>
-        </tr> 
-        <tr>
-           <td>Температура</td>
-           <td>+19</td>
-           <td>+20</td>
-           <td>+21</td>
-           <td>+22</td>
-           <td>+23</td>
-           <td>+24</td>
-           <td>+25</td>
-        </tr>
-        <tr>
-           <td>Опади</td>
-           <td>сонячно</td>
-           <td>хмарно</td>
-           <td>хмарно, часом дощ</td>
-           <td>дощ</td>
-           <td>сонячно</td>
-           <td>хмарно</td>
-           <td>сонячно</td>
-        </tr>
-        <tr>
-           <td>Вітер</td>
-           <td>східний, 5 м/с</td>
-           <td>західний, 2 м/с</td>
-           <td>північний 0,2 м/с</td>
-           <td>західний, 1 м/с</td>
-           <td>південно-західний, 0,5 м/с</td>
-           <td>південний, 2 м/с</td>
-           <td>північно-східний, 1 м/с</td>
-        </tr>
-        <tr>
-            <td colspan="8"><i>*прогноз погоди надано сайтом <a href="http://www.weather.com/" target="blank">Weather.com</i> 
-        </tr>
-      </table>
+        <br>  
+        <table id="weather" align="center" width="700" cellpadding="5" border="0">
+            <caption>Таблиця погоди</caption>
+            <tr>
+               <th>День та час</td>
+               <th colspan="2">Хмарність, опади та температура</th>
+            </tr> 
+        </table>
+        <p style="margin: 10px ;">   
+           <i>*Прогноз погоди надано сайтом <a href="http://openweathermap.org/" target="blank">OpenWeatherMap</a></i>
+        </p>
+        <p class="location" style="margin: 10px ;"></p>  
         <br>
         <hr> 
         <footer>
-            <div id=copy><em>&copy;2015 by Yuriy Ryzhkov</em></div>
+           <div id=copy><em>&copy;2015 by Yuriy Ryzhkov</em></div>
         </footer>
      </div>
-  </body>  
+     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+     <script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.0.0/moment.min.js"></script>
+     <script src="../js/getweather.js"></script> 
+   </body>  
 </html>   
