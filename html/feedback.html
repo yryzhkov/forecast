@@ -21,28 +21,35 @@
             Повідомте будь-ласка ваші враження
         </h1>  
     <br> 
-    <form id="feedbackForm">
-       <fieldset>
+    <form id="feedbackForm" >
+       <fieldset style="width: 500px; float: left; border-radius: 5px;">
          <p>
-           <label for="name">Ім'я:</label>
+             <label for="name"><b>Ім'я:</b></label>
+           <br>
            <input type="text" name="name" title="Введіть ваше ім'я" required>
          </p> 
          <p> 
-           <label for="email">E-mail:</label>  
+           <label for="email"><b>E-mail:</b></label>
+           <br> 
            <input type="email" name="email" placeholder="@" required><br>
          </p>
          <p>
-           <label for="details">Відгук:</label>
-           <textarea name="details" maxlength="500" cols="30" rows="10" required></textarea></p>
+           <label for="details"><b>Відгук:</b></label>
+           <br> 
+           <textarea name="details" maxlength="500" cols="70" rows="10" required></textarea>
+         </p>
          <p>   
            <input type="submit">
          </p>     
         </fieldset>
       </form> 
+         <div align="right"> 
+           <img src="../images/feedback.jpg" alt="Зворотній зв'язок" width="300"> 
+         </div>       
       <br>  
-         <hr> 
         <footer>
-            <div id=copy><em>&copy;2015 by Yuriy Ryzhkov</em></div>
+            <hr> 
+            <div id=copy><em>&copy; Yuriy Ryzhkov, 2015</em></div>
         </footer>
      </div>
   </body>  

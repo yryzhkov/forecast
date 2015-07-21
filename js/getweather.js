@@ -1,70 +1,61 @@
 $(function() {
-	var DEG = 'C';			// C for celsius
+	var DEG = 'C';	 // Темп. в градусах Цельсія
 	var weatherTable = $('#weather'),
-		scroller = $('#scroller'),
+        weatherError = $('#error'),
 		location = $('p.location');
-
-	// Does this browser support geolocation?
+	// Перевірка підтримки геолокації
 	if (navigator.geolocation) {
 		navigator.geolocation.getCurrentPosition(locationSuccess, locationError);
 	}
 	else {
 		showError("Your browser does not support Geolocation!");
 	}
-
-	// Get user's location, and use OpenWeatherMap
-	// to get the location name and weather forecast
-
+	// Визначення місцезнаходження і прогноз OpenWeatherMap
 	function locationSuccess(position) {
-
 		try {
-
-			// Retrive the cache
+			// Отримання кешу
 			var cache = localStorage.weatherCache && JSON.parse(localStorage.weatherCache);
 			var d = new Date();
 
-			// If the cache is newer than 30 minutes, use the cache
+			// Перевірка кешу на затримку 30хв
 			if (cache && cache.timestamp && cache.timestamp > d.getTime() - 30*60*1000 ) {
-				// Get the offset from UTC (turn the offset minutes into ms)
 				var offset = d.getTimezoneOffset()*60*1000;
 				var city = cache.data.city.name;
 				var country = cache.data.city.country;
 
 				$.each(cache.data.list, function() {
-					// "this" holds a forecast object
-
-					// Get the local time of this forecast (the api returns it in utc)
+					// Присвоювання місцевого часу
 					var localTime = new Date(this.dt*1000 + offset);
 
 					addWeather(
 						this.weather[0].icon,
-						moment(localTime).calendar(),	// We are using the moment.js library to format the date
-						this.weather[0].main + ', ' + convertTemperature(this.main.temp_min) + '°' + DEG +
-												' / ' + convertTemperature(this.main.temp_max) + '°' + DEG+'</b>'
+						moment(localTime).calendar(),	// Форматування часу з moment.js
+						this.weather[0].main,
+                        '<b>'+ convertTemperature(this.main.temp) + '°' + DEG + '</b>',
+                        this.main.pressure
+                        
 					);
 
 				});
 
-				// Add the location to the page
+				// Вивід місцезнаходження
 				location.html('Визначене місцезнаходження: '+ city +', <b>'+ country +'</b>');
 			}
 
 			else{
-			
-				// If the cache is old or nonexistent, issue a new AJAX request
-
+				// Новий запит якщо кеш відсутній або застарів
 				var weatherAPI = 'http://api.openweathermap.org/data/2.5/forecast?lat='+position.coords.latitude+
 									'&lon='+position.coords.longitude+'&callback=?'
 
 				$.getJSON(weatherAPI, function(response){
 
-					// Store the cache
+					// Запис в кеш
 					localStorage.weatherCache = JSON.stringify({
-						timestamp:(new Date()).getTime(),	// getTime() returns milliseconds
+						timestamp:(new Date()).getTime(),	// час в мілісекундах
 						data: response
 					});
 
-					// Call the function again
+					// Повторний виклик функції
 					locationSuccess(position);
 				});
 			}
@@ -76,16 +67,16 @@ $(function() {
 		}
 	}
 
-	function addWeather(icon, day, condition){
-
-		var markup = '<tr>'+'<td>'+ day +'</td>'+'<td>'+
-            '<img src="../images/icons/'+ icon +'.png" />'+'</td>'+
-			'<td>'+ condition +'</td>'+'</tr>';
+	function addWeather(icon, day, condition, temp, press){
+		var markup = '<tr>'+'<td>'+ day +'</td>'+
+            '<td>'+ '<img src="../images/icons/'+ icon +'.png" />'+'</td>'+
+			'<td>'+ condition +'</td>'+
+            '<td>'+ temp +'</td>'+
+            '<td>'+ press +'</td>' +'</tr>';
 		weatherTable.append(markup);
 	}
 
-	/* Error handling functions */
-
+	/* Функція обробки помилок */
 	function locationError(error){
 		switch(error.code) {
 			case error.TIMEOUT:
@@ -103,14 +94,13 @@ $(function() {
 		}
 
 	}
-
+    /* Функція конвертування температури */
 	function convertTemperature(kelvin){
-		// Convert the temperature to either Celsius or Fahrenheit:
 		return Math.round(DEG == 'C' ? (kelvin - 273.15) : (kelvin*9/5 - 459.67));
 	}
 
 	function showError(msg){
-		weatherDiv.addClass('error').html(msg);
+		weatherError.html(msg);
 	}
 
 });

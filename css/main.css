@@ -59,14 +59,28 @@ nav li a:hover {
     -moz-box-shadow: 0 0 10px rgba(0,0,0,0.5);
     -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.5);     
 }
+#feedbackForm {
+    margin: 0 25px;
+}
 h1 {
     margin: 0;
     padding: 15px;
     color: blue;
 }
-footer {
+table, th, td {
+    text-align: center;
+}
+table {
+    border-color: #F5F5F5;
+}
+th {
+    background-color: aliceblue;
+}
+footer {    
+    clear: both;
     padding: 10px;
 }
 #copy {
     color: darkgrey;
+    font-size: 80%;
 }

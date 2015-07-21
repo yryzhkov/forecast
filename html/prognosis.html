@@ -2,7 +2,7 @@
 <html>
    <head>
       <meta charset="UTF-8">
-      <title>Ваш прогноз погоди</title>
+      <title>Сторінка прогнозу погоди</title>
       <link href="../css/main.css" rel="stylesheet"/>
    </head>
    <body>
@@ -21,21 +21,23 @@
             Прогноз погоди у вашому місті
         </h1>  
         <br>  
-        <table id="weather" align="center" width="700" cellpadding="5" border="0">
-            <caption>Таблиця погоди</caption>
+        <table id="weather" bgcolor=#F8F8F8  align="center" width="700" cellpadding="5" border="1">
             <tr>
-               <th>День та час</td>
-               <th colspan="2">Хмарність, опади та температура</th>
+               <th>День та час</th>
+               <th colspan="2">Небо і опади</th>
+               <th>Температура</th>
+               <th>Тиск</th>
             </tr> 
         </table>
+        <div id="error" style="align: center;"></div>
         <p style="margin: 10px ;">   
            <i>*Прогноз погоди надано сайтом <a href="http://openweathermap.org/" target="blank">OpenWeatherMap</a></i>
         </p>
-        <p class="location" style="margin: 10px ;"></p>  
+        <p class="location" style="margin: 10px;"></p>  
         <br>
         <hr> 
         <footer>
-           <div id=copy><em>&copy;2015 by Yuriy Ryzhkov</em></div>
+           <div id=copy><em>&copy; Yuriy Ryzhkov, 2015</em></div>
         </footer>
      </div>
      <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
